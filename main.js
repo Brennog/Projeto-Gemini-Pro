@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import md from "markdown-it";
 
 // Initialize the model
-const genAI = new GoogleGenerativeAI(`${import.meta.env.VITE_API_KEY}`);
+const genAI = new GoogleGenerativeAI("AIzaSyDGCRmW_zWtFTF7z7srNCG4SonTWuGX8yM");
 
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
