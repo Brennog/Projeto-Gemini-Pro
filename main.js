@@ -8,7 +8,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 let history = [];
 
 async function getResponse(prompt) {
-  const template="Cree 5 preguntas y sobre el siguiente texto:";
+  const template="Cree 5 preguntas y respuestas sobre el siguiente texto:";
   const chat = await model.startChat({ history: history });
   const result = await chat.sendMessage(`${template} ${prompt}`);
   const response = await result.response; 
