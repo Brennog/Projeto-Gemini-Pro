@@ -1,7 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import md from "markdown-it";
 
-// Initialize the model
 const genAI = new GoogleGenerativeAI("AIzaSyDGCRmW_zWtFTF7z7srNCG4SonTWuGX8yM");
 
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
@@ -19,7 +18,6 @@ async function getResponse(prompt) {
   return text;
 }
 
-// user chat div
 export const userDiv = (data) => {
   return `
   <!-- User Chat -->
@@ -37,7 +35,6 @@ export const userDiv = (data) => {
   `;
 };
 
-// AI Chat div
 export const aiDiv = (data) => {
   return `
   <!-- AI Chat -->
