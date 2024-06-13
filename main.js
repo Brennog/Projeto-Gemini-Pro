@@ -9,9 +9,10 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 let history = [];
 
 async function getResponse(prompt) {
+  const template="Crie 5 perguntas e respostas sobre o texto a seguir: ";
   const chat = await model.startChat({ history: history });
-  const result = await chat.sendMessage(prompt);
-  const response = await result.response;
+  const result = await chat.sendMessage(`${template} ${prompt}`);
+  const response = await result.response; 
   const text = response.text();
 
   console.log(text);
@@ -22,15 +23,16 @@ async function getResponse(prompt) {
 export const userDiv = (data) => {
   return `
   <!-- User Chat -->
-          <div class="flex items-center gap-2 justify-start">
-            <img
+          <div class="flex items-center gap-2 justify-end">
+           <p class="bg-gemDeep text-white p-1 rounded-md shadow-md  ">
+              ${data}
+            </p> 
+          <img
               src="user.jpg"
               alt="user icon"
               class="w-10 h-10 rounded-full"
             />
-            <p class="bg-gemDeep text-white p-1 rounded-md shadow-md  ">
-              ${data}
-            </p>
+
           </div>
   `;
 };
@@ -39,15 +41,15 @@ export const userDiv = (data) => {
 export const aiDiv = (data) => {
   return `
   <!-- AI Chat -->
-          <div class="flex gap-2 justify-end">
-            <pre class="bg-gemRegular/40 text-gemDeep p-1 rounded-md shadow-md whitespace-pre-wrap">
-              ${data}
-            </pre>
-            <img
+          <div class="flex gap-2 justify-start">
+          <img
               src="chat-bot.jpg"
               alt="user icon"
               class="w-10 h-10 rounded-full"
-            />
+            />  
+          <pre class="bg-gemRegular/40 text-gemDeep p-1 rounded-md shadow-md whitespace-pre-wrap">
+              ${data}
+            </pre>
           </div>
   `;
 };

@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        gemLight: "#e5f5e0",
-        gemRegular: "#a1d99b",
-        gemDeep: "#31a354",
+        'gem-light': "#8257e5",
+        'gem-regular': "#5f616f",
+        'gem-deep': "#1d1e23",
       },
     },
   },
